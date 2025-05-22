@@ -1,4 +1,4 @@
-# variables.tf
+
 variable "ami" {}
 variable "instance_type" {}
 variable "ec2_name" {}

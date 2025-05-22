@@ -1,7 +1,7 @@
-# variables.tf
+
 variable "vpc_id" {}
 variable "route_table_public_id" {}
-variable "route_table_private_id" {}
+variable "route_table_private_name" {}
 variable "public_subnet1_cidr" {}
 variable "public_subnet2_cidr" {}
 variable "private_subnet1_cidr" {}
@@ -19,3 +19,5 @@ variable "sg_description" {}
 variable "http_description" {}
 variable "allow_http_cidr" {}
 variable "egress_cidr" {}
+variable "natgw_name" {}
+variable "natgw_eip_name" {}

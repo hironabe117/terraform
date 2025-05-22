@@ -1,53 +1,46 @@
-# main.tf
+
 provider "aws" {
   region = var.aws_region
 }
 
 module "vpc" {
-  source           = "./modules/vpc"
-  vpc_cidr         = var.vpc_cidr
-  vpc_name         = var.vpc_name
-  igw_name         = var.igw_name
-  route_table_name = var.route_table_name
-  default_route    = var.default_route
+  source                  = "./modules/vpc"
+  vpc_cidr                = var.vpc_cidr
+  vpc_name                = var.vpc_name
+  igw_name                = var.igw_name
+  route_table_public_name = var.route_table_public_name
+  default_route           = var.default_route
 }
 
 module "network" {
-  source         = "./modules/network"
-  vpc_id         = module.vpc.vpc_id
-  route_table_id = module.vpc.route_table_id
+  source                   = "./modules/network"
+  vpc_id                   = module.vpc.vpc_id
+  route_table_public_id    = module.vpc.route_table_public_id
+  route_table_private_name = var.route_table_private_name
 
-<<<<<<< HEAD
-  public_subnet1_cidr      = var.public_subnet1_cidr
-  public_subnet1_az        = var.public_subnet1_az
-  public_subnet1_name      = var.public_subnet1_name
+  public_subnet1_cidr = var.public_subnet1_cidr
+  public_subnet1_az   = var.public_subnet1_az
+  public_subnet1_name = var.public_subnet1_name
 
-  public_subnet2_cidr      = var.public_subnet2_cidr
-  public_subnet2_az        = var.public_subnet2_az
-  public_subnet2_name      = var.public_subnet2_name
+  public_subnet2_cidr = var.public_subnet2_cidr
+  public_subnet2_az   = var.public_subnet2_az
+  public_subnet2_name = var.public_subnet2_name
 
-  private_subnet1_cidr      = var.private_subnet1_cidr
-  private_subnet1_az        = var.private_subnet1_az
-  private_subnet1_name      = var.private_subnet1_name
+  private_subnet1_cidr = var.private_subnet1_cidr
+  private_subnet1_az   = var.private_subnet1_az
+  private_subnet1_name = var.private_subnet1_name
 
-  private_subnet2_cidr      = var.private_subnet2_cidr
-  private_subnet2_az        = var.private_subnet2_az
-  private_subnet2_name      = var.private_subnet2_name
-=======
-  subnet1_cidr = var.subnet1_cidr
-  subnet1_az   = var.subnet1_az
-  subnet1_name = var.subnet1_name
-
-  subnet2_cidr = var.subnet2_cidr
-  subnet2_az   = var.subnet2_az
-  subnet2_name = var.subnet2_name
->>>>>>> 678113928eaa5fadb4008c80a2e7db92c86f109d
+  private_subnet2_cidr = var.private_subnet2_cidr
+  private_subnet2_az   = var.private_subnet2_az
+  private_subnet2_name = var.private_subnet2_name
 
   sg_name          = var.sg_name
   sg_description   = var.sg_description
   http_description = var.http_description
   allow_http_cidr  = var.allow_http_cidr
   egress_cidr      = var.egress_cidr
+  natgw_name       = var.natgw_name
+  natgw_eip_name   = var.natgw_eip_name
 }
 
 module "ec2" {

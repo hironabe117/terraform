@@ -1,12 +1,15 @@
-# variables.tf
+
 variable "aws_region" {}
 
 # VPC
 variable "vpc_cidr" {}
 variable "vpc_name" {}
 variable "igw_name" {}
-variable "route_table_name" {}
+variable "route_table_public_name" {}
+variable "route_table_private_name" {}
 variable "default_route" {}
+variable "natgw_name" {}
+variable "natgw_eip_name" {}
 
 # Subnets
 variable "public_subnet1_cidr" {}
