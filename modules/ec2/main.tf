@@ -35,7 +35,6 @@ resource "aws_instance" "ec2" {
   key_name               = aws_key_pair.deployer.key_name
   iam_instance_profile   = aws_iam_instance_profile.ssm_profile.name
   vpc_security_group_ids = [var.sg_id]
-
   tags = {
     Owner = var.owner_name
     Name  = var.ec2_name
