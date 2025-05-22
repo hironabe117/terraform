@@ -1,3 +1,4 @@
+# main.tf
 resource "aws_subnet" "public1" {
   vpc_id                  = var.vpc_id
   cidr_block              = var.public_subnet1_cidr
@@ -32,12 +33,12 @@ resource "aws_subnet" "private2" {
 
 resource "aws_route_table_association" "assoc1" {
   subnet_id      = aws_subnet.public1.id
-  route_table_id = var.route_table_id
+  route_table_id = var.route_table_private_id
 }
 
 resource "aws_route_table_association" "assoc2" {
   subnet_id      = aws_subnet.public2.id
-  route_table_id = var.route_table_id
+  route_table_id = var.route_table_private_id
 }
 
 resource "aws_security_group" "http" {

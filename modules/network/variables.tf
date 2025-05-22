@@ -1,6 +1,7 @@
-
+# variables.tf
 variable "vpc_id" {}
-variable "route_table_id" {}
+variable "route_table_public_id" {}
+variable "route_table_private_id" {}
 variable "public_subnet1_cidr" {}
 variable "public_subnet2_cidr" {}
 variable "private_subnet1_cidr" {}
