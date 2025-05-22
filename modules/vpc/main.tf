@@ -1,14 +1,20 @@
-
+# main.tf
 resource "aws_vpc" "main" {
   cidr_block           = var.vpc_cidr
   enable_dns_support   = true
   enable_dns_hostnames = true
-  tags = { Name = var.vpc_name }
+  tags = {
+    Owner = var.owner_name
+    Name  = var.vpc_name
+  }
 }
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
-  tags = { Name = var.igw_name }
+  tags = {
+    Owner = var.owner_name
+    Name  = var.igw_name
+  }
 }
 
 resource "aws_route_table" "public" {
@@ -17,5 +23,8 @@ resource "aws_route_table" "public" {
     cidr_block = var.default_route
     gateway_id = aws_internet_gateway.igw.id
   }
-  tags = { Name = var.route_table_public_name }
+  tags = {
+    Owner = var.owner_name
+    Name  = var.route_table_public_name
+  }
 }

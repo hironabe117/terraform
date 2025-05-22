@@ -1,4 +1,4 @@
-
+# main.tf
 resource "aws_key_pair" "deployer" {
   key_name   = var.key_pair_name
   public_key = file(var.public_key_path)
@@ -31,10 +31,13 @@ resource "aws_iam_instance_profile" "ssm_profile" {
 resource "aws_instance" "ec2" {
   ami                    = var.ami
   instance_type          = var.instance_type
-  subnet_id              = var.subnet_id
+  subnet_id              = var.subnet_public1_id
   key_name               = aws_key_pair.deployer.key_name
   iam_instance_profile   = aws_iam_instance_profile.ssm_profile.name
   vpc_security_group_ids = [var.sg_id]
 
-  tags = { Name = var.ec2_name }
+  tags = {
+    Owner = var.owner_name
+    Name  = var.ec2_name
+  }
 }
