@@ -57,3 +57,9 @@ module "ec2" {
   ssm_policy_arn        = var.ssm_policy_arn
   instance_profile_name = var.instance_profile_name
 }
+
+module "s3" {
+  source          = "./modules/s3"
+  s3_bucket1_name = var.s3_bucket1_name
+  owner_name      = var.owner_name
+}

@@ -1,5 +1,7 @@
 
-aws_region               = "ap-northeast-1"
+aws_region = "ap-northeast-1"
+owner_name = "arsenior"
+
 vpc_cidr                 = "10.117.0.0/16"
 vpc_name                 = "arsenior-vpc"
 igw_name                 = "arsenior-igw"
@@ -35,9 +37,11 @@ natgw_eip_name = "arsenior-natgw-eip"
 ec2_ami         = "ami-0b6e7ccaa7b93e898"
 instance_type   = "t2.micro"
 ec2_name        = "arsenior-EC2-public"
-key_pair_name   = "my-key"
+key_pair_name   = "arsenior-keypair"
 public_key_path = "/home/ec2-user/.ssh/id_rsa.pub"
 
-iam_role_name         = "ec2-ssm-role"
+iam_role_name         = "arsenior-ec2-ssm-role"
 ssm_policy_arn        = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-instance_profile_name = "ec2-ssm-instance-profile"
+instance_profile_name = "arsenior-ec2-ssm-instance-profile"
+
+s3_bucket1_name = "arsenior-s3-bucket"

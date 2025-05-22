@@ -1,6 +1,9 @@
 
 variable "aws_region" {}
 
+# Common
+variable "owner_name" {}
+
 # VPC
 variable "vpc_cidr" {}
 variable "vpc_name" {}
@@ -45,3 +48,6 @@ variable "public_key_path" {}
 variable "iam_role_name" {}
 variable "ssm_policy_arn" {}
 variable "instance_profile_name" {}
+
+# S3
+variable "s3_bucket1_name" {}
