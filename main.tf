@@ -17,13 +17,21 @@ module "network" {
   vpc_id            = module.vpc.vpc_id
   route_table_id    = module.vpc.route_table_id
 
-  subnet1_cidr      = var.subnet1_cidr
-  subnet1_az        = var.subnet1_az
-  subnet1_name      = var.subnet1_name
+  public_subnet1_cidr      = var.public_subnet1_cidr
+  public_subnet1_az        = var.public_subnet1_az
+  public_subnet1_name      = var.public_subnet1_name
 
-  subnet2_cidr      = var.subnet2_cidr
-  subnet2_az        = var.subnet2_az
-  subnet2_name      = var.subnet2_name
+  public_subnet2_cidr      = var.public_subnet2_cidr
+  public_subnet2_az        = var.public_subnet2_az
+  public_subnet2_name      = var.public_subnet2_name
+
+  private_subnet1_cidr      = var.private_subnet1_cidr
+  private_subnet1_az        = var.private_subnet1_az
+  private_subnet1_name      = var.private_subnet1_name
+
+  private_subnet2_cidr      = var.private_subnet2_cidr
+  private_subnet2_az        = var.private_subnet2_az
+  private_subnet2_name      = var.private_subnet2_name
 
   sg_name           = var.sg_name
   sg_description    = var.sg_description

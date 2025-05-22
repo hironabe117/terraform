@@ -1,18 +1,34 @@
 
 resource "aws_subnet" "public1" {
   vpc_id                  = var.vpc_id
-  cidr_block              = var.subnet1_cidr
-  availability_zone       = var.subnet1_az
+  cidr_block              = var.public_subnet1_cidr
+  availability_zone       = var.public_subnet1_az
   map_public_ip_on_launch = true
-  tags = { Name = var.subnet1_name }
+  tags = { Name = var.public_subnet1_name }
 }
 
 resource "aws_subnet" "public2" {
   vpc_id                  = var.vpc_id
-  cidr_block              = var.subnet2_cidr
-  availability_zone       = var.subnet2_az
+  cidr_block              = var.public_subnet2_cidr
+  availability_zone       = var.public_subnet2_az
   map_public_ip_on_launch = true
-  tags = { Name = var.subnet2_name }
+  tags = { Name = var.public_subnet2_name }
+}
+
+  resource "aws_subnet" "private1" {
+  vpc_id                  = var.vpc_id
+  cidr_block              = var.private_subnet1_cidr
+  availability_zone       = var.private_subnet1_az
+  map_public_ip_on_launch = true
+  tags = { Name = var.private_subnet1_name }
+}
+
+resource "aws_subnet" "private2" {
+  vpc_id                  = var.vpc_id
+  cidr_block              = var.private_subnet2_cidr
+  availability_zone       = var.private_subnet2_az
+  map_public_ip_on_launch = true
+  tags = { Name = var.private_subnet2_name }
 }
 
 resource "aws_route_table_association" "assoc1" {

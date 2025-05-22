@@ -1,12 +1,18 @@
 
 variable "vpc_id" {}
 variable "route_table_id" {}
-variable "subnet1_cidr" {}
-variable "subnet1_az" {}
-variable "subnet1_name" {}
-variable "subnet2_cidr" {}
-variable "subnet2_az" {}
-variable "subnet2_name" {}
+variable "public_subnet1_cidr" {}
+variable "public_subnet2_cidr" {}
+variable "private_subnet1_cidr" {}
+variable "private_subnet2_cidr" {}
+variable "public_subnet1_az" {}
+variable "public_subnet2_az" {}
+variable "private_subnet1_az" {}
+variable "private_subnet2_az" {}
+variable "public_subnet1_name" {}
+variable "public_subnet2_name" {}
+variable "private_subnet1_name" {}
+variable "private_subnet2_name" {}
 variable "sg_name" {}
 variable "sg_description" {}
 variable "http_description" {}
