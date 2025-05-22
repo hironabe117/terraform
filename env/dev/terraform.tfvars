@@ -49,4 +49,4 @@ ssm_policy_arn        = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 instance_profile_name = "arsenior-ec2-ssm-instance-profile"
 
 # S3
-s3_bucket1_name = "arsenior-s3-bucket"
+s3_bucket1_name = "arsenior-s3-bucket2"

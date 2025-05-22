@@ -1,5 +1,4 @@
 # variables.tf
-variable "aws_region" { type = string }
 
 # Common for all modules
 variable "owner_name" { type = string }

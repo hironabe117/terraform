@@ -1,7 +1,6 @@
 # main.tf
 resource "aws_s3_bucket" "bucket1" {
   bucket = var.s3_bucket1_name
-
   tags = {
     Name  = var.s3_bucket1_name
     Owner = var.owner_name
